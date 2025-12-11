@@ -3,12 +3,12 @@ on:
   pull_request:
     branches:
       - master
-  strategy:
-    matrix:
-      java_version: [ '11', '17', '21' ]
 jobs:
   check-application:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java_version: [ '11', '17', '21' ]
 
     steps:
       - name: Checkout repository
