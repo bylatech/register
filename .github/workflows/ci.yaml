@@ -3,7 +3,9 @@ on:
   pull_request:
     branches:
       - master
-
+  strategy:
+    matrix:
+      java_version: [ '11', '17', '21' ]
 jobs:
   check-application:
     runs-on: ubuntu-latest
@@ -15,8 +17,8 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
-          distribution: 'zulu'
-          java-version: '17'
+          distribution: 'temurin'
+          java-version: ${{ matrix.java_version }}
 
       - name: Cache Maven
         uses: actions/cache@v4
