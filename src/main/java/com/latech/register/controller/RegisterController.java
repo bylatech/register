@@ -29,5 +29,4 @@ public class RegisterController {
         log.info("Saving/creating person... {}", personData);
         return ResponseEntity.status(HttpStatus.CREATED).body(personData);
     }
-
 }
